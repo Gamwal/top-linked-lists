@@ -55,6 +55,41 @@ export default class LinkedList {
       current = current.nextNode;
     }
   }
+
+  pop() {
+    let node = this.root;
+    while (node) {
+      if (node.nextNode.nextNode === null) {
+        node.nextNode = null;
+        return;
+      }
+      node = node.nextNode;
+    }
+  }
+
+  contains(value) {
+    let current = this.root;
+    while (current) {
+      if (current.value === value) {
+        return true;
+      }
+      current = current.nextNode;
+    }
+    return false;
+  }
+
+  find(value) {
+    let count = 0;
+    let current = this.root;
+    while (current) {
+      if (current.value === value) {
+        return count;
+      }
+      count++;
+      current = current.nextNode;
+    }
+    return null;
+  }
 }
 
 class Node {
