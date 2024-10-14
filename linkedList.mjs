@@ -104,16 +104,28 @@ export default class LinkedList {
       current = current.nextNode;
     }
     repr.push("null");
-    console.log(repr.join(" -> "));
+    return repr.join(" -> ");
   }
 
   insertAt(value, index) {
-    if (index >= this.size()) {
+    if (index - 1 >= this.size()) {
       return null;
     }
     let previousNode = this.at(index - 1);
     const newNode = new Node(value, previousNode.nextNode);
     previousNode.nextNode = newNode;
+  }
+
+  removeAt(index) {
+    if (index >= this.size()) {
+      return null;
+    }
+
+    let beforeNode = this.at(index - 1);
+    let afterNode = this.at(index + 1);
+
+    if (index === 0) this.root = afterNode;
+    else beforeNode.nextNode = afterNode;
   }
 }
 
