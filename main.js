@@ -8,6 +8,7 @@ list.append("parrot");
 list.append("hamster");
 list.append("snake");
 list.append("turtle");
+list.append("turtle");
 
 // console.log(list);
 // console.log(list.getLastNode());
@@ -27,4 +28,7 @@ list.append("turtle");
 // console.log(list.size());
 // console.log(list.tail.value);
 // console.log(list.contains("turtles"));
-console.log(list.find("snake"));
+// console.log(list.find("snake"));
+list.toString();
+console.log(list.insertAt("pig", 6));
+list.toString();

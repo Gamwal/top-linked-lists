@@ -45,6 +45,10 @@ export default class LinkedList {
   }
 
   at(index) {
+    if (index >= this.size()) {
+      return null;
+    }
+
     let count = 0;
     let current = this.root;
     while (current) {
@@ -89,6 +93,27 @@ export default class LinkedList {
       current = current.nextNode;
     }
     return null;
+  }
+
+  toString() {
+    const repr = [];
+    let current = this.root;
+    while (current) {
+      const nodeRepr = `( ${current.value} )`;
+      repr.push(nodeRepr);
+      current = current.nextNode;
+    }
+    repr.push("null");
+    console.log(repr.join(" -> "));
+  }
+
+  insertAt(value, index) {
+    if (index >= this.size()) {
+      return null;
+    }
+    let previousNode = this.at(index - 1);
+    const newNode = new Node(value, previousNode.nextNode);
+    previousNode.nextNode = newNode;
   }
 }
 
